@@ -1,0 +1,46 @@
+## Bash programming 
+
+
+### Execute
+```bash
+chmod +x file.sh
+./file.sh
+```
+
+```bash
+bash file.sh
+```
+The first way need give permission to execute the file, 
+and you should include a shebang #!/bin/bash.
+
+to see what shell you have in your machie run
+
+```bash
+echo $SHELL
+```
+if you have bash you can see the currently installed version.
+
+```bash
+bash --version
+```
+
+
+### R
+
+
+### Variables
+
+
+## Relative and absoulte path
+
+
+  folderRoot
+    /   \
+   /     \
+folderA  folderB
+
+To see where you are on,  uses
+```bash
+pwd
+```
+
