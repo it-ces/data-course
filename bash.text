@@ -1,5 +1,86 @@
 # Basic in Linux
 
+to see what shell type in your terminal;
+
+```bash
+echo $SHELL
+```
+```bash
+bash --version
+```
+if you have bash you can see the currently installed version.
+
+cd it is the command to establish the current folder of work,
+for instance put in the root of system:
+```bash
+cd \
+```
+while, fhe following put in Documents folder
+```bash
+cd ~/Documents
+```
+## Relative and absoulte path
+
+```bash
+  folderRoot
+    /   \
+   /     \
+folderA  folderB
+```
+To see where you are on,  uses
+```bash
+pwd
+```
+if we want establish our working directory in _folderB_ we must
+uses a absolute path in the following way.
+```bash
+cd \home\user\folderRoot
+```
+but if we want to change to folderA we can uses a relative path using
+```bash
+cd ../folderA
+```
+then if we need for instance come back to folderRoot we only need type
+```bash
+cd ..
+``
+## Variables
+Bash recognize variable=value, does not variable = value.
+for instance.
+
+```bash
+figure=square
+```
+## reserved keywods
+**for** x to indicate the interator.
+**in** to give a explicity list of arguments.
+**do** is used to loop over positional objetcts.
+
+Note: when you are typing in terminal could be useful 
+to know that: 
+ctrl-a put the cursos to beginning of line.
+ctrl-e put the cursor at the end of line.
+
+in script you can comment one line
+```bash
+# comment one line
+# comment two line
+```
+
+multiple lines
+```bash
+: '
+one line
+two lines
+three lines
+'
+```
+the command which show us the path of a command.
+for instance:
+```bash
+which bash
+which ls
+```
 the string variable will be executed with $name
 it is important remark that $(ls) means shell execution.
 ```bash
@@ -130,218 +211,23 @@ seq -f ' Numbers %g' 41
 important flags,
 -r make a recusive search in currently directory.
 
-
-## Regexs
-
-
-# Metacharacters
-()
-[]
-.
-+
-*
-$
-|
-\
-^
-
-to match the literal character of Metacharacters we need uses for instance \.
-for instance to match 1+1=1 we need 
-"1\+1"
-
-
-stingy= tacaño.
-wrangling= disputa, reñir.
-sparingly=
-daunting=desalentador
-scratching=
-desedverly=
-eager=
-winded=
-
-
-
-
-$ match at the end
-^ match at the beging
-
-
-\d match a digit [0-9]
-\D match a no digit
-\w match a alphanumeric Character
-\W no match a alphanumeric Character
-\s match a white space Character [tab and newline are included)
-
-
-at sing is @.
-
-
-
-
-
-# Character classes
-[az] match any of a and z this only match a single character the order of character dont matter. 
-[a-z] with the hyphen - you can match a range of characters, match any between a and z
-[^az] the caret in this case indicate not.
-
-# Negated character classes
-[^#-character] means  by any character less by #.
-
-
-
-this also it is important.
-x{m,n}	At least m and at most n x's
-
-dont matter if are not adjacent.
-
-
-
-
-parsing dates,
-
-
-^20\d\d-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(0[1-9]|[1-2][0-9]|3[01])$
-
-group alternatives (a|b)ccc
-
-
-
-research what are wildcards or steroids?
-
-https://www.princeton.edu/~mlovett/reference/Regular-Expressions.pdf
-
- print until 40.
-
- 
-0
-
-
-
-
 ## tr (tranlate or delete characters)
 
- According to the documentation, 
+## Cut command  (research)
 
- squeeze= exprimir, apretar.
-
-
-## Cut command 
- we can cut lines in the txt, 
-
-
-### Execute
+Note: Before you can execute a script we must execute:
 ```bash
 chmod +x file.sh
 ./file.sh
 ```
-
 ```bash
 bash file.sh
 ```
 The first way need give permission to execute the file, 
 and you should include a shebang #!/bin/bash.
 
-to see what shell you have in your machie run
 
-```bash
-echo $SHELL
-```
-if you have bash you can see the currently installed version.
-
-```bash
-bash --version
-```
-
-
-### R
-
-
-### Variables
-
-
-## Relative and absoulte path
-
-
-  folderRoot
-    /   \
-   /     \
-folderA  folderB
-
-To see where you are on,  uses
-```bash
-pwd
-```
-if we want establish our working directory in _folderB_ we must
-uses a absolute path in the following way.
-```bash
-cd \home\user\folderRoot
-```
-but if we want to change to folderA we can uses a relative path using
-```bash
-cd ../folderA
-```
-then if we need for instance come back to folderRoot we only need type
-```bash
-cd ..
-``
-
-
-
-## Variables
-Bash recognize variable=value, does not variable = value.
-for instance.
-
-```bash
-figure=square
-```
-
-## reserved keywods
-for x to indicate the interator.
-in to give a explicity list of arguments.
-do is used to loop over positional objetcts.
-
-
-
-
-ctrl-a put the cursos to beginning of line.
-ctrl-e put the cursor at the end of line.
-
-
-
-in script you can comment one line
-```bash
-# comment one line
-# comment two line
-```
-
-multiple lines
-```bash
-: '
-one line
-two lines
-three lines
-'
-```
-the command which show us the path of a command.
-for instance:
-```bash
-which bash
-which ls
-```
-
-## Loops in Bash.
-backup=
-
-#Variables
-store data of a command
-```bash
-files=$(ls)
-```
-take in mind that $() specify that we want run a command and store 
-the results in the variable.
-
-
-NOTE= you must avoid UPPERCASES to define variables, due this way 
+Note= you must avoid UPPERCASES to define variables, due this way 
 is used for internal shell variables.
 
 aritmetic operations will be performed inside of $[].
@@ -357,22 +243,11 @@ for instance;
 ```bash
 a =$((1+3))
 ```
-
-
-note to refer to variables we need put the dollar sing.
-
 then alternative you can uses:
+
 ```bash
 cd /home/$whoami
 ```
-to establish the working directory in the folder.
-
-
-el comando 
-```bash
-wget
-```
-to world wide web get, to downland files from web.
 
 ```bash
 head file 
@@ -422,27 +297,43 @@ sed -n '2p' file
 the subsitution command 
 ```bash
 sed s/'line'/'LINE/'  bash.txt
-```
-## Section about regular expressions:
-### Special regex characters
+``
 
- # + and * ? ( occurrence indicators) 
-1+ one or more digit 
-* zero or more
-? zero or one
-{m,n} m to n occurrences
-{m} exactly m times.
-{m,} m or more times.
+# Regular expressions 
+Used to match strings, are very powerful to find patterns 
+in the search, here you must take in account that there are a special 
+characters in regex;
+# Metacharacters
+()
+[]
+.
++
+*
+$
+|
+\
+^
+and to match the literal character of Metacharacters we need uses for instance \
+for instance to match 1+1=1 we need "1\+1"
 
-# .\d \D  Methacharacters
+a brief discription of those and others:
 
-. any one characters except new line = [^\n]
-\d \D digit[0-9] and not digit respectively.
-\w \W word[a-zA-Z0-9] and not word character.
-
-# ^ $  positional
-^ start of the line
-$ end of the lines  search until a previous a jump of line.
+$ match at the end
+^ match at the beging
+\d match a digit [0-9]
+\D match a no digit
+\w match a alphanumeric Character
+\W no match a alphanumeric Character
+\s match a white space Character [tab and newline are included)
+[az] match any of a and z this only match a single character the order of character dont matter. 
+[a,e,i,o,u] all vowels.
+[a-z] with the hyphen - you can match a range of characters, match any between a and z
+[^az] the caret in this case indicate not.
+ [^\n] any one characters except new line.
+[^#-character] means  by any character less by #.
+this also it is important.
+x{m,n}	At least m and at most 
+x{m,} m or more
 
 # positional group
 () create a back reference
@@ -467,18 +358,11 @@ and we can refer to the groups with dollar sing, for instance $1 refer to the fi
 \d{3}. the we want replace then we can think in replacing $xxx-$1-xxx.
 
 backreference 
-
-uses the match pattern itself for instance
-check the repeated words.
+uses the match pattern  to uses itself pattern regex for instance check the repeated words.
 
 (\w+)\s\1 return for instance así así 
 
-
-note that \# mentioned in the same regular expression $# to another part as replace.
-
-# \b Methacharacter word boundarie.
-# \s white space character.
-
+bounderaries \b 
 
 \bdeterminant\b
 
@@ -487,76 +371,5 @@ determination no match
 determinant match 
 
 only math the last, due especify the boundaries.
-
-
-# anchors in regular expressions.
-
-
-#[] list 
-accept any of the characters inside of them, A-Z all letters from A until Z.
-[a,e,i,o,u] all vowels.
-[^] Not one of the characters.
-
-
-and \ escape meaning characters.
-
-
-for what it is important to know each process in image signaling processing, indicating.
-a formal language in each step of the process, initialization.
-
-regex are very important things to understand,
-+ one or more time
-* zero or more time 
-but both are greedy by preceded by ? are lazy, whats means this?
-re.search() is similiar to find but for the pattern.
-re.findall() extract the portions that match.
-it is similar to uses find and [] to slicing in a variable.
-
-
-
-we need mark the difference among a greedy and a lazy search
-
-
-
-
-
-
-## Introduction to SQL
-
-take in account that int/int make a typecasing to produce a float.
-
-weather=
-tape drivers=
-come up=
-spinning disk=
-backups=
-whirring noise=
-breadcrumbs=
-fancy=
-encourage=
-nerds=
-highfalutin=
-winded=
-flowing back=
-forth=
-XAMPP OR LAMP 
-loopback=
-handout=
-chuck=
-backwards=
-flaw=
-claws=
-back up down=
-foreshadow=
-crumbs=
-lookups=
-grossly=
-hash
-lookups=
-drat=
-conformance=
-see the python operations in SQL.
-last value.
-
 
 
