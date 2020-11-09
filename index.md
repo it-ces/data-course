@@ -1,7 +1,5 @@
 ## Bash programming 
 
-
-### Execute
 ```bash
 chmod +x file.sh
 ./file.sh
@@ -10,6 +8,7 @@ chmod +x file.sh
 ```bash
 bash file.sh
 ```
+
 The first way need give permission to execute the file, 
 and you should include a shebang #!/bin/bash.
 
@@ -23,16 +22,10 @@ if you have bash you can see the currently installed version.
 ```bash
 bash --version
 ```
-
-
-### R
-
-
 ### Variables
 
 
 ## Relative and absoulte path
-
 
   folderRoot
     /   \
@@ -166,4 +159,64 @@ and adding a index.md this will be rendered as a html file to show the web page.
 integration with anoter repos.
 
  we can uses a branch gh-pages to add to mainly page.
+
+
+
+# how we can share a jupyter-notebook.
+see binder plataform.
+
+
+## create from source html.
+index.html to load the web page.
+
+
+
+# Share a jupyter notebook using github and binder.
+
+we need create a requirement.txt in the repo.
+requirements have the packages and the version 
+pandas==2.4
+matplotlib==1.6
+
+
+we need create runtime.txt 
+python3
+
+what is jupyterhub?
+KubeSpawner
+pod
+
+
+
+# binder creates a specific enviorment.
+
+
+
+
+
+## What about licences 
+this point is very important due, there are projects that have in mind.
+
+
+## binder run in kubernetes.
+reproducible containers from repositories.
+
+## Known the version of packages in Python
+
+
+```python 
+import pandas
+print(pandas.__version__)
+```
+
+how see packages and version in R?
+
+$ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
+
+
+pip install notedown
+
+
+
+## We need create a work flow to publish all this material.
 

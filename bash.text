@@ -1,4 +1,232 @@
-## Bash programming 
+# Basic in Linux
+
+the string variable will be executed with $name
+it is important remark that $(ls) means shell execution.
+```bash
+ls='word_!'
+echo $(ls) 
+echo $ls
+```
+Thus the second line, execute de command, otherwise the third line print the variable ls that containt word_!.
+due the modularity of the bash programming functions are very handy.
+function_name(){
+    expressions
+}
+
+for instance;
+lvim(){
+ls > texto.txt
+vim texto.txt
+}
+
+Sometimes we need interact with input or macros, in the following example
+we used the for loop. 
+for i in /home/ces/courses/notes/*
+do
+echo $i 
+done 
+this will be very handy to operate over files systematically. 
+
+The following function will be return a file
+tha contain the number of line of the documents in a folder.
+
+wd_doc(){
+    dic="$(pwd)/*" 
+    for x in $dic
+    do 
+    wc $x > count_FILE.txt
+    vim count_FILE
+    done
+}
+
+Note: if you are using screen remember that we can alter screen with 
+ctrl + a, shift +a and change the config with :SlimeConfig inside of vim.
+
+echo "hello world"
+
+we can put a single send of command using \ for instance;
+echo line 1 \
+line 2 \
+line 3
+
+echo $(pwd)
+echo hello
+
+echo allow us the tag -e to init to give to parse especial characters as \n new line.
+
+echo "in this text \n here beging a new line"
+echo -e "in this text \n here begin a new line"
+
+seq allow us print sequences. here %g means integer.
+
+```bash
+seq -f 'this is a string format as in C, we will see the following %g' 10
+```
+
+seq have a general syntax (which?) 
+
+the command echo without arguments allow us  create an empty file.
+
+echo > empty_file.1
+
+cat > out.1 <<CES
+CustomerID, Customer
+   1, Customer A
+   2, Customer B
+CES
+
+cat is usually used to concatenate files.
+
+see the following code and try of understand what happend.
+```bash
+head -n # file_name.
+for x in {1..4}
+do 
+seq -f "the number will be %g"  1 1 $x > file_seq$x.txt
+ls | grep file > summary.txt
+dic="$(pwd)/file_seq*.txt"
+done
+```
+```bash
+for t in $dic 
+do
+head -n 1 $t
+done 
+cat file_seq*
+```
+the previous one example was a case of no nested loop example.
+Note: in a single line, multiple statemensts are allowed with ; 
+
+cat line1.txt line2.txt  | sort -V
+to sort in numerical values within the text.
+cat > line2.txt <<CES
+line 99
+line 101
+line 98
+line 120
+line 100
+line 119
+line 118
+CES
+
+note that > overwrite the document while >> append to the document.
+seq -f 'line %g' 5 > lab1.txt
+seq -f 'line %g' 5 >> lab1.txt
+
+cat lab1.txt | sort | uniq
+
+grep is a command to search text using regular expression.
+
+seq 20 | grep #
+print only the numbers with #.
+
+seq 20 | grep ^#
+print only the numbers that beging with #.
+
+Note: grep can be combined with $ ^ the first to match at the end of line, and caret to the beging of line.
+
+seq -f ' Numbers %g' 41
+
+important flags,
+-r make a recusive search in currently directory.
+
+
+## Regexs
+
+
+# Metacharacters
+()
+[]
+.
++
+*
+$
+|
+\
+^
+
+to match the literal character of Metacharacters we need uses for instance \.
+for instance to match 1+1=1 we need 
+"1\+1"
+
+
+stingy= tacaño.
+wrangling= disputa, reñir.
+sparingly=
+daunting=desalentador
+scratching=
+desedverly=
+eager=
+winded=
+
+
+
+
+$ match at the end
+^ match at the beging
+
+
+\d match a digit [0-9]
+\D match a no digit
+\w match a alphanumeric Character
+\W no match a alphanumeric Character
+\s match a white space Character [tab and newline are included)
+
+
+at sing is @.
+
+
+
+
+
+# Character classes
+[az] match any of a and z this only match a single character the order of character dont matter. 
+[a-z] with the hyphen - you can match a range of characters, match any between a and z
+[^az] the caret in this case indicate not.
+
+# Negated character classes
+[^#-character] means  by any character less by #.
+
+
+
+this also it is important.
+x{m,n}	At least m and at most n x's
+
+dont matter if are not adjacent.
+
+
+
+
+parsing dates,
+
+
+^20\d\d-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(0[1-9]|[1-2][0-9]|3[01])$
+
+group alternatives (a|b)ccc
+
+
+
+research what are wildcards or steroids?
+
+https://www.princeton.edu/~mlovett/reference/Regular-Expressions.pdf
+
+ print until 40.
+
+ 
+0
+
+
+
+
+## tr (tranlate or delete characters)
+
+ According to the documentation, 
+
+ squeeze= exprimir, apretar.
+
+
+## Cut command 
+ we can cut lines in the txt, 
 
 
 ### Execute
@@ -123,6 +351,14 @@ a=10
 b=13
 echo $[$a + $b]
 ```
+However to organize the content we can perform 
+arithmetic operations in (()).
+for instance;
+```bash
+a =$((1+3))
+```
+
+
 note to refer to variables we need put the dollar sing.
 
 then alternative you can uses:
@@ -132,38 +368,195 @@ cd /home/$whoami
 to establish the working directory in the folder.
 
 
+el comando 
+```bash
+wget
+```
+to world wide web get, to downland files from web.
+
+```bash
+head file 
+head -n 1 file
+tail +33
+```
+the flag -n allow us to get only n lines.
+tail +33 print sice 33 line until the last line.
+
+```bash
+tr
+```
+tr is to replace and delete text.
+change from to lower case to upper case
+```bash
+tr [:lower:] [:upper:]
+tr [a-z] [A-Z]
+```
+redireccionamiento 
+```bash
+tr [a-z] < input.txt > output.txt
+```
+pass the commo to the return car.
+
+```bash
+cat file | tr ';' '\n'
+```
+
+drop blank character 
+```bash
+cat blank | tr -d ' '
+```
+number of lines in a document:
+```bash
+cat results.txt | wc -l
+```
+
+deleting lines with the sed editor;
+```bash
+sed '1d' file
+```
+
+to print two lines in screen
+```
+sed -n '2p' file
+```
+the subsitution command 
+```bash
+sed s/'line'/'LINE/'  bash.txt
+```
+## Section about regular expressions:
+### Special regex characters
+
+ # + and * ? ( occurrence indicators) 
+1+ one or more digit 
+* zero or more
+? zero or one
+{m,n} m to n occurrences
+{m} exactly m times.
+{m,} m or more times.
+
+# .\d \D  Methacharacters
+
+. any one characters except new line = [^\n]
+\d \D digit[0-9] and not digit respectively.
+\w \W word[a-zA-Z0-9] and not word character.
+
+# ^ $  positional
+^ start of the line
+$ end of the lines  search until a previous a jump of line.
+
+# positional group
+() create a back reference
+$1 $2 retrieve the back reference in sequential order.
+
+it is important constrant the uses of () paranthesis in regular expressions.
+() grouping and capturing.
+backreferences
+
+this is more easy of understand with examples:
+12-123-456
+19-124-190
+12-144-987
+03-001-876
+if we make a pattern match we could uses:
+\d{2}-\d{3}-\d{3}.
+but note that this will be a entire search, however if we want select only
+the first three digits we need enclosed in paranthesis.
+\d{2}-(\d{3})-\d{3}.
+group one.
+and we can refer to the groups with dollar sing, for instance $1 refer to the first 
+\d{3}. the we want replace then we can think in replacing $xxx-$1-xxx.
+
+backreference 
+
+uses the match pattern itself for instance
+check the repeated words.
+
+(\w+)\s\1 return for instance así así 
 
 
-now we are create the branch gh-pages.
-git remote add url.
+note that \# mentioned in the same regular expression $# to another part as replace.
 
-how to drop remote branchs:
-git branch -a
-git push origin --delete main 
-
-we only need create a branch with the folder.
+# \b Methacharacter word boundarie.
+# \s white space character.
 
 
-we need create a index.html
+\bdeterminant\b
+
+determinante no match
+determination no match
+determinant match 
+
+only math the last, due especify the boundaries.
 
 
-http://jmcglone.com/guides/github-pages/
+# anchors in regular expressions.
+
+
+#[] list 
+accept any of the characters inside of them, A-Z all letters from A until Z.
+[a,e,i,o,u] all vowels.
+[^] Not one of the characters.
+
+
+and \ escape meaning characters.
+
+
+for what it is important to know each process in image signaling processing, indicating.
+a formal language in each step of the process, initialization.
+
+regex are very important things to understand,
++ one or more time
+* zero or more time 
+but both are greedy by preceded by ? are lazy, whats means this?
+re.search() is similiar to find but for the pattern.
+re.findall() extract the portions that match.
+it is similar to uses find and [] to slicing in a variable.
 
 
 
-research about Jekyll, 
-
-for what is used git stash?
-
-see track that will be the solution to the problem.
+we need mark the difference among a greedy and a lazy search
 
 
-### git page.
 
-creating a a repo with the _username.github.io_ 
-and adding a index.md this will be rendered as a html file to show the web page.
 
-integration with anoter repos.
 
- we can uses a branch gh-pages to add to mainly page.
+
+## Introduction to SQL
+
+take in account that int/int make a typecasing to produce a float.
+
+weather=
+tape drivers=
+come up=
+spinning disk=
+backups=
+whirring noise=
+breadcrumbs=
+fancy=
+encourage=
+nerds=
+highfalutin=
+winded=
+flowing back=
+forth=
+XAMPP OR LAMP 
+loopback=
+handout=
+chuck=
+backwards=
+flaw=
+claws=
+back up down=
+foreshadow=
+crumbs=
+lookups=
+grossly=
+hash
+lookups=
+drat=
+conformance=
+see the python operations in SQL.
+last value.
+
+
 
