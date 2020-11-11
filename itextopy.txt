@@ -1,0 +1,7 @@
+i created this text to work in python with string 
+and another things, it is very important to know for what is used
+python every day or life in this moment will be appaer '\n' 
+or maybe \n
+indicating what \N for what \N
+\N
+the symbol to end the what is ?

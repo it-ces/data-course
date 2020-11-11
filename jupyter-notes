@@ -1,0 +1,57 @@
+Jupyter notebook, it is a great enviroment to data analysis.
+
+also support bash commands, 
+
+
+reading string with shift tab.
+
+
+lines that beginnig with % not will be interpred as python commands.
+%lsmagic 
+show all avaliables magics.
+
+
+
+when you have a long text we can click to the right side of panel
+to make a scroll window.
+
+
+to beggining we can uses the magic cell 
+%%time
+to count the time of execution.
+
+
+you can modify colors with
+jt -t 
+and reset to defaul with jt -r
+
+
+# nbextensions 
+there are powerful extensions that allow us take the better codification, or work 
+in differnte enviroments.
+
+##Exercise 2  or  Solution cells
+
+hide cells to students.
+
+
+# Adding snippets
+are short code to implement in a header, for example import plan and have all my routine.
+
+
+
+
+what is a gist in github?
+
+
+
+
+hide all inputs and hide toggle input are very interesting.
+
+jt -t chesterish -f fira -fs 13 -nf ptsans -nfs 11 -N -kl -cursw 5 -cursc o  -cellw 95% -T
+
+
+to downland the jupyter without the input cells:
+
+jupyter nbconvert --to pdf --TemplateExporter.exclude_input=True  my_notebook.ipynb
+
