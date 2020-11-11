@@ -3,7 +3,7 @@
 This not is conclusive yet.
 
 
-[Basics of R](./R/index.ipynb)
+[Basics of R](./R/R_lab.html)
 
-[Basics of bash](./bash/index.md)
+[Basics of bash](./bash/bash.md)
 
