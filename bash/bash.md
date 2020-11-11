@@ -303,36 +303,37 @@ sed s/'line'/'LINE/'  bash.txt
 Used to match strings, are very powerful to find patterns 
 in the search, here you must take in account that there are a special 
 characters in regex;
-
 # Metacharacters
-* ()
-* []
-* .
-* +
-* *
-* $
-* |
-* \
-* ^
+()
+[]
+.
++
+*
+$
+|
+\
+^
 and to match the literal character of Metacharacters we need uses for instance \
 for instance to match 1+1=1 we need "1\+1"
+
 a brief discription of those and others:
 
-* $ match at the end
-* ^ match at the beging
-* \d match a digit [0-9]
-* \D match a no digit
-* \w match a alphanumeric Character
-* \W no match a alphanumeric Character
-* \s match a white space Character [tab and newline are included)
-* [az] match any of a and z this only match a single character the order of character dont matter. 
-* [a,e,i,o,u] all vowels.
-* [a-z] with the hyphen - you can match a range of characters, match any between a and z
-* [^az] the caret in this case indicate not.
-* [^\n] any one characters except new line.
-* [^#-character] means  by any character less by #.
-* x{m,n} At least m and at most 
-* x{m,} m or more
+$ match at the end
+^ match at the beging
+\d match a digit [0-9]
+\D match a no digit
+\w match a alphanumeric Character
+\W no match a alphanumeric Character
+\s match a white space Character [tab and newline are included)
+[az] match any of a and z this only match a single character the order of character dont matter. 
+[a,e,i,o,u] all vowels.
+[a-z] with the hyphen - you can match a range of characters, match any between a and z
+[^az] the caret in this case indicate not.
+ [^\n] any one characters except new line.
+[^#-character] means  by any character less by #.
+this also it is important.
+x{m,n}	At least m and at most 
+x{m,} m or more
 
 # positional group
 () create a back reference
